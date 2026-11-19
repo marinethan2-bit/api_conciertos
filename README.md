@@ -118,3 +118,17 @@ Se han comprobado las operaciones CRUD desde el frontend desplegado en Render:
 - **DELETE:** eliminación de artistas y conciertos.
 
 Todas las pruebas se han completado correctamente.
+
+## Diagnóstico de incidencias mediante logs
+
+Se ha realizado una prueba controlada para comprobar el registro de peticiones y la gestión de errores del backend desplegado en Render.
+
+**Prueba realizada:**
+
+1. Se ha solicitado la ruta `/ruta-inexistente`.
+2. Render ha registrado la petición en los logs mediante el middleware `logger.js`.
+3. El backend ha respondido con el estado HTTP 404 y el mensaje `Ruta no encontrada`.
+
+**Resultado:**
+
+La petición aparece correctamente en los logs y el manejador de rutas inexistentes devuelve la respuesta esperada.
