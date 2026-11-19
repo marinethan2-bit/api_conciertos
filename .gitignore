@@ -1,0 +1,31 @@
+# Dependencias
+**/node_modules/
+
+# Archivos de compilación
+**/dist/
+**/dist-ssr/
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Bases de datos locales
+*.db
+*.db-journal
+
+# Archivos generados por Prisma
+api_conciertos-backend/generated/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Editores
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
