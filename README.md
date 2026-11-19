@@ -89,14 +89,32 @@ Los archivos `.env` reales no se incluyen en el repositorio.
 
 ## Despliegue
 
-El despliegue se realizará utilizando Render, con un servicio web para el backend y un sitio estático para el frontend.
+El proyecto está desplegado utilizando Render, con un servicio web para el backend y un sitio estático para el frontend.
 
-- GitHub: pendiente.
-- Backend: pendiente.
-- Frontend: pendiente.
+- GitHub: https://github.com/marinethan2-bit/api_conciertos
+- Backend: https://api-conciertos-backend.onrender.com
+- Frontend: https://api-conciertos-frontend.onrender.com
+
+### Endpoints del backend
+
+- `/`: comprueba que la API está funcionando.
+- `/health`: comprueba el estado del servidor.
+- `/api/artistas`: consulta los artistas.
+- `/api/conciertos`: consulta los conciertos.
 
 ## Consideraciones
 
 La base de datos SQLite utilizada en el despliegue gratuito de Render puede perder sus datos al reiniciarse el servicio, debido al almacenamiento efímero. Para una persistencia permanente sería recomendable utilizar una base de datos externa, como PostgreSQL.
 
 Los servicios gratuitos de Render también pueden tardar en responder después de un periodo de inactividad.
+
+## Pruebas realizadas
+
+Se han comprobado las operaciones CRUD desde el frontend desplegado en Render:
+
+- **READ:** consulta de artistas y conciertos.
+- **CREATE:** creación de artistas y conciertos.
+- **UPDATE:** modificación de artistas y conciertos.
+- **DELETE:** eliminación de artistas y conciertos.
+
+Todas las pruebas se han completado correctamente.
