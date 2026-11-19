@@ -48,7 +48,7 @@ Generar Prisma Client y preparar la base de datos:
 ```bash
 npm run build
 npm run migrate:deploy
-npx prisma db seed
+npm run seed
 ```
 
 Iniciar el servidor:
