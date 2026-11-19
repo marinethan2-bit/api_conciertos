@@ -104,9 +104,14 @@ El proyecto está desplegado utilizando Render, con un servicio web para el back
 
 ## Consideraciones
 
-La base de datos SQLite utilizada en el despliegue gratuito de Render puede perder sus datos al reiniciarse el servicio, debido al almacenamiento efímero. Para una persistencia permanente sería recomendable utilizar una base de datos externa, como PostgreSQL.
+El proyecto está desplegado en el plan gratuito de Render, por lo que hay que tener en cuenta algunas limitaciones:
 
-Los servicios gratuitos de Render también pueden tardar en responder después de un periodo de inactividad.
+- **SQLite y persistencia:** la base de datos SQLite se almacena en el sistema de archivos del servicio. En el plan gratuito de Render no se dispone de un disco persistente, por lo que los datos pueden perderse al reiniciar o volver a desplegar el servicio.
+- **Datos iniciales:** al arrancar el backend se ejecutan las migraciones y la semilla. La semilla utiliza `upsert`, por lo que permite recuperar los datos iniciales sin duplicarlos. Sin embargo, los datos creados por los usuarios pueden perderse si se reinicia la base de datos.
+- **Arranque en frío:** los servicios gratuitos de Render pueden suspenderse después de un periodo de inactividad. La primera petición posterior puede tardar más de lo habitual.
+- **Alternativa:** para mantener los datos de forma persistente sería recomendable utilizar una base de datos PostgreSQL alojada en un servicio externo o con almacenamiento persistente.
+
+Estas limitaciones corresponden al entorno gratuito utilizado para realizar las pruebas del despliegue.
 
 ## Pruebas realizadas
 
