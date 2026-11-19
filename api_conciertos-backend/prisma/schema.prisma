@@ -1,0 +1,33 @@
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Artista {
+  id          Int        @id @default(autoincrement())
+  nombre      String
+  genero      String?
+  descripcion String?
+  web         String?
+  creadoEn    DateTime   @default(now())
+  conciertos  Concierto[]
+}
+
+model Concierto {
+  id          Int      @id @default(autoincrement())
+  titulo      String
+  descripcion String?
+  fecha       DateTime
+  lugar       String
+  precio      Float?
+  agotado     Boolean  @default(false)
+  creadoEn    DateTime @default(now())
+
+  artistaId   Int
+  artista     Artista  @relation(fields: [artistaId], references: [id])
+}
